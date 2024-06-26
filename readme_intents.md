@@ -1,7 +1,7 @@
-# 1. Интеграция через интенты
+# 1. Integration with intents
 
 - [1. Интеграция через интенты](#1-интеграция-через-интенты)
-  - [1.1. Вызов метода (на примере метода visit)](#11-вызов-метода-на-примере-метода-visit)
+  - [1.1. Method call (visit example)](#11-вызов-метода-на-примере-метода-visit)
   - [1.2 Методы](#12-методы)
     - [1.2.1 Метод Visit](#121-метод-visit)
     - [1.2.2 Метод Report](#122-метод-report)
@@ -10,9 +10,9 @@
   - [1.3 Широковещательное (broadcast) сообщение](#13-широковещательное-broadcast-сообщение)
   - [1.4 Примеры отчетов](#14-примеры-отчетов)
 
-## 1.1. Вызов метода (на примере метода visit)
+## 1.1. Method call (visit example)
 
-Action задается в формате ```com.ailet.[метод]```
+Action is specified in the format ```com.ailet.[method]```
 
 ```kotlin
 private fun visit() {
@@ -52,82 +52,82 @@ override fun onActivityResult(requestCode: Int, resultCode: Int, intent: Intent?
 }
 
 ```
-```Intent.extras``` содержит следующие параметры:
+```Intent.extras``` contains parameters:
 
-Параметр | Тип | Описание 
+Parameter | Type | Description 
 ---------|-----|----------
-action | String | Метод
-error | String | Тип ошибки (если была ошибка)
-message | String | Тест ошибки (если была ошибка)
+action | String | Method
+error | String | Error type (if it was)
+message | String | Error description (if it was)
 
-```Intent.data``` содержит ```uri``` файла отчета ([пример отчета](method_result.json)) для методов ```visit, report, summaryReport```.
+```Intent.data``` contains ```uri``` file report ([пример отчета](method_result.json)) for methods ```visit, report, summaryReport```.
 
 
-**Типы ошибок**
+**Error types**
 
-Тип | Описание 
+Type | Description 
 ---------|-----
-ERROR | Ошибка при выполнении метода
-AUTH | Ошибка авторизации
-INCORRECT_INPUT | Некорректные входные данные
+ERROR | Error while method execute
+AUTH | Authentication error
+INCORRECT_INPUT | Incorrect input data
 
-## 1.2 Методы
+## 1.2 Methods
 
-Метод  | Описание
+Method  | Description
 --- | ---
-[ACTION_VISIT](#121-метод-visit) | Старт/редактирование визита 
-[ACTION_REPORT](#122-метод-report) | Получение отчета по визиту
-[ACTION_SUMMARY_REPORT ](#123-метод-summary-report) | Сводный отчет по указанному визиту
-[ACTION_SYNC](#124-метод-sync) | Запуск синхронизации
+[ACTION_VISIT](#121-метод-visit) | Start/edit visit 
+[ACTION_REPORT](#122-метод-report) | Recieve visit repot
+[ACTION_SUMMARY_REPORT ](#123-метод-summary-report) | Visit summary report
+[ACTION_SYNC](#124-метод-sync) | Launch synchronization
 
-### 1.2.1 Метод Visit
+### 1.2.1 Visit method
 
-Метод запускает съемку в рамках визита.
+Method launch photo shooting while visit.
 
-Параметр | Тип | Описание | Обязательный 
+Parameter | Type | Description | Necessary 
 ---------|-----|----------|:-:
-login           |String      | Логин пользователя в системе Ailet      | + | 
-password        |String      | Пароль пользователя в системе Ailet     | + | 
-id  |String      | Идентификатор пользователя 
-visit_id         |String      | Идентификатор Визита        | + | 
-store_id         |String      | Идентификатор торговой точки        | + | 
-task_id       |String      | Внешний идентификатор задачи         | |  
+login           |String      | User login in Ailet system      | + | 
+password        |String      | User password in Ailet system     | + | 
+id  |String      | User id 
+visit_id         |String      | Visit id        | + | 
+store_id         |String      | Store id        | + | 
+task_id       |String      | External task id         | |  
 
-### 1.2.2 Метод Report
+### 1.2.2 Report method
 
-Метод возвращает отчет по визиту ([пример отчета](method_result.json)).
+Method recieve visit repot ([пример отчета](method_result.json)).
 
-Параметр | Тип | Описание | Обязательный 
+Parameter | Type | Description | Necessary 
 ---------|-----|----------|:-:
-login           |String      | Логин пользователя в системе Ailet      | + | 
-password        |String      | Пароль пользователя в системе Ailet     | + | 
-id  |String      | Идентификатор пользователя 
-visit_id         |String      | Идентификатор Визита        | + | 
-store_id         |String      | Идентификатор торговой точки        | + | 
-task_id       |String      | Внешний идентификатор задачи         | |  
+login           |String      | User login in Ailet system      | + | 
+password        |String      | User password in Ailet system     | + | 
+id  |String      | User id 
+visit_id         |String      | Visit id        | + | 
+store_id         |String      | Store id        | + | 
+task_id       |String      | External task id         | |  
 
-### 1.2.3 Метод Summary Report
+### 1.2.3 Summary Report method
 
-Открывает окно сводного отчета по визиту.
+Launch window summary report of visit.
 
-Параметр | Тип | Описание | Обязательный 
+Parameter | Type | Description | Necessary 
 ---------|-----|----------|:-:
-login           |String      | Логин пользователя в системе Ailet      | + | 
-password        |String      | Пароль пользователя в системе Ailet     | + | 
-id  |String      | Идентификатор пользователя 
-visit_id         |String      | Идентификатор Визита        | + | 
-store_id         |String      | Идентификатор торговой точки        | + | 
-task_id       |String      | Внешний идентификатор задачи         | |  
+login           |String      | User login in Ailet system      | + | 
+password        |String      | User password in Ailet system     | + | 
+id  |String      | User id 
+visit_id         |String      | Visit id        | + | 
+store_id         |String      | Store id        | + | 
+task_id       |String      | External task id         | |  
 
-### 1.2.4 Метод Sync
+### 1.2.4 Sync method
 
-Метод запускает синхронизацию.
+Method launch synchronization.
 
-Параметр | Тип | Описание | Обязательный 
+Parameter | Type | Description | Necessary
 ---------|-----|----------|:-:
-login           |String      | Логин пользователя в системе Ailet     | + | 
-password        |String      | Пароль пользователя в системе Ailet     | + | 
-id  |String      | Идентификатор пользователя 
+login           |String      | User login in Ailet system     | + | 
+password        |String      | User password in Ailet system     | + | 
+id  |String      | User id 
 
 Метод возвращает только resultCode, если RESULT_OK - то есть данные для синхронизации и сервис синхронизации запустился, если иной, например RESULT_CANCELED - то нет данных для синхронизации.
 
@@ -181,17 +181,17 @@ private fun parseBroadcaseMesasge(intent: Intent) {
 
 **Intent extras**
 
-Параметр | Тип | Описание 
+Parameter | Type | Description 
 ---------|-----|----------
-internal_visit_id           |String      | Внутренний (Ailet) ИД визита
-visit_id           |String      | ИД визита
-store_id           |String      | ИД торговой точки
-user_id           |String      | ИД пользователя (Ailet)
-total_photos           |Int      | Количество фото в визите
-completed_photos           |Int      | Количество обработанных фото
-result           | String | Uri файла отчета ([пример отчета](broadcast_result.json))
+internal_visit_id           |String      | Internal (Ailet) visit id
+visit_id           |String      | Visit id
+store_id           |String      | Store id
+user_id           |String      | User id (Ailet)
+total_photos           |Int      | Count visit photos
+completed_photos           |Int      | Count completed photos
+result           | String | Uri report file ([пример отчета](broadcast_result.json))
 
-## 1.4 Примеры отчетов
+## 1.4 Examples reports
 
 [Пример отчета, возвращаемого методами (кроме метода ACTION_SYNC)](method_result.json)
 
